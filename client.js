@@ -14,6 +14,10 @@ const connect = function() {
   conn.on('connect', () => {
     console.log(`Successful connection!`);
     conn.write(`Name: GSA`);
+
+    // testing timeout on move functionality
+    setTimeout(() => {
+      conn.write(`Move: up`)}, 50);
   })
 
   conn.on('data', (data) => {
