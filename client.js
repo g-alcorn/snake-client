@@ -16,8 +16,10 @@ const connect = function() {
     conn.write(`Name: GSA`);
 
     // testing timeout on move functionality
-    setTimeout(() => {
-      conn.write(`Move: up`)}, 50);
+    // setTimeout(() => {
+    //   conn.write(`Move: up`)}, 50);
+    
+
   })
 
   conn.on('data', (data) => {

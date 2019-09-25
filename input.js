@@ -1,8 +1,11 @@
+let connection;
+
 /**
  * Setup User Interface 
  * Specifically, so that we can handle user input via stdin
  */
-const setupInput = function() {
+const setupInput = function(conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding('utf8');
@@ -13,9 +16,22 @@ const setupInput = function() {
   return stdin;
 }
 
-const handleUserInput = function(input) {
-  if (input === '\u0003')
+const handleUserInput = function(input) {  
+  if (input === '\u0003') {
     process.exit();
+  } 
+  
+  if (input === 'w') {
+    input = "Move: up";
+  } else if (input === 'a') {
+    input = "Move: left";
+  } else if (input === 's') {
+    input = "Move: down";
+  } else if (input === 'd') {
+    input = "Move: right";
+  }
+  
+  connection.write(input);
 }
 
 
