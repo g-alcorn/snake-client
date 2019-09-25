@@ -20,18 +20,25 @@ const handleUserInput = function(input) {
   if (input === '\u0003') {
     process.exit();
   } 
+
+  let output = "";
   
   if (input === 'w') {
-    input = "Move: up";
+    output = "Move: up";
   } else if (input === 'a') {
-    input = "Move: left";
+    output = "Move: left";
   } else if (input === 's') {
-    input = "Move: down";
+    output = "Move: down";
   } else if (input === 'd') {
-    input = "Move: right";
+    output = "Move: right";
+  } else if (input === 'z') {
+    output = "Say: eat my shortssss";
+  } else if (input === 'x') {
+    output = "Say: hissssss";
+  } else if (input === 'c') {
+    output = "Say: i'm winning!";
   }
-  
-  connection.write(input);
+  connection.write(output);
 }
 
 
